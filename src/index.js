@@ -50,7 +50,7 @@ async function updateGallery() {
     let request = refs.input.value
     const photosObj = await getPhotos(request, pageCount)
     let pages = Math.ceil(photosObj.totalHits / photosPerPage)
-    if (pageCount - 1 === pages) {
+    if (pageCount === pages) {
         createList(photosObj.hits)
         Notiflix.Notify.warning("We're sorry, but you've reached the end of search results.");
         refs.loadMoreBtn.style.display = "none"
